@@ -1,0 +1,4 @@
+FPS Tested: 28.835408249835226
+FPS Camera: 30.0
+Height: 480
+Width: 640
