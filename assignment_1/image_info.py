@@ -11,5 +11,8 @@ def print_image_information(image):
     print("Size:", image.size)
     print("Data type:", image.dtype)
 
-img = cv2.imread('assignment_1/lena.png')
-print_image_information(img)
+
+
+if __name__ == "__main__":
+    img = cv2.imread('assignment_1/lena.png')
+    print_image_information(img)
