@@ -12,8 +12,7 @@ def find_corners(reference_image):
     cv2.imwrite(f"solution/harris_corners.png", reference_image)
 
 
-def SIFT(image, align_image):
-    max_features = 10
+def SIFT(image, align_image, max_features=10, good_match_percent=0.7):
     image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     align_image_gray = cv2.cvtColor(align_image, cv2.COLOR_BGR2GRAY)
     sift = cv2.SIFT_create()
@@ -28,7 +27,7 @@ def SIFT(image, align_image):
     
     good = []
     for m,n in matches:
-        if m.distance < 0.7*n.distance:
+        if m.distance < good_match_percent*n.distance:
             good.append(m)
 
     good_sorted = sorted(good, key=lambda x: x.distance)[:max_features]
